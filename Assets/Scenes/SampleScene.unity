@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,12 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca48e985eaead44ba311aebf3d0fe7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  gravity: -9.8
-  jumpHeight: 3
+  speed: 6
+  acceleration: 4
+  maxSpeed: 11
+  gravity: -40
+  jumpHeight: 1.5
   lerpCrouch: 0
   crouching: 0
-  sprinting: 0
   crouchTimer: 0
   p: 0
 --- !u!114 &178339654
@@ -706,13 +707,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7465242439243302152, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.66
+      value: -4.61
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -720,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.23
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalRotation.w
