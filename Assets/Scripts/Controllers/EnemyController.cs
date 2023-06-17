@@ -40,4 +40,8 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
+
+//     void onCollisionEnter(Collision col) {
+//         Debug.Log(col.gameObject);
+//     }
 }
