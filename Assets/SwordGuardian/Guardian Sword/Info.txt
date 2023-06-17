@@ -1,0 +1,11 @@
+Guardian Sword extracted from Breath of the Wild. The energy blade texture wasn't assigned (UV mapping was there for it) so I assigned it as using the texure is better than a white mesh.
+
+Moderator note:
+Model checked in Blender and View3dScene. Only one UV map seen in Blender.
+
+Tools
+Switch Toolbox by KillzXGaming
+Blender 2.78c
+
+AJD-262
+Jan 26 2021
