@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attributes : MonoBehaviour
 {
-    public int health;
+    public int health = 50;
     public int attack = 5;
     private float damageTimer = 0;
     public float damageDelay = .5f;
