@@ -49,6 +49,7 @@ public class Attributes : MonoBehaviour, IDamageable
  
                 // Reset the damage timer 
                 damageTimer = damageDelay; 
+                
             }
            
         }
