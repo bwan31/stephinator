@@ -14,6 +14,9 @@ public class Gun : MonoBehaviour
     public AudioSource gunshotHit; // sunset destiny 2 
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private Transform guncam;
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private TrailRenderer BulletTrail;
+
     float lastShot;
 
     private void Start() {
@@ -41,16 +44,14 @@ public class Gun : MonoBehaviour
             contact = false;
 
             lastShot = 0;
-            OnGunFired();
+            TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
+            StartCoroutine(SpawnTrail(trail, hit));
         }
     }
 
     public void Update() {
         lastShot += Time.deltaTime;
         Debug.DrawRay(guncam.position, guncam.forward);
-    }
-
-    public void OnGunFired() {
     }
 
     IEnumerator StartRecoil()
@@ -60,5 +61,18 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Revolve.GetComponent<Animator>().Play("Rest");
         isRecoil = false;
+    }
+
+    private IEnumerator SpawnTrail(TrailRenderer Trail, RaycastHit Hit) {
+        float time = 0;
+        Vector3 startPosition = Trail.transform.position;
+        while (time < 0.1) {
+            Trail.transform.position = Vector3.Lerp(startPosition, Hit.point, time);
+            time+= Time.deltaTime;
+
+            yield return null;
+        }
+        Trail.transform.position = Hit.point;
+        Destroy(Trail.gameObject, Trail.time);
     }
 }
