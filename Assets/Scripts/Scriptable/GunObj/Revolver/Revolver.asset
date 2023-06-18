@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Revolver
   damage: 33
   maxDistance: 200
-  fireRate: 180
+  fireRate: 75
