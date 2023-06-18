@@ -219,6 +219,7 @@ RectTransform:
   m_Children:
   - {fileID: 1560106390}
   - {fileID: 234685931}
+  - {fileID: 2008043019}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -296,6 +297,9 @@ MonoBehaviour:
   chipSpeed: 2
   frontHealthBar: {fileID: 261765095}
   backHealthBar: {fileID: 711877436}
+  overlay: {fileID: 2008043020}
+  duration: 1
+  fadeSpeed: 2
 --- !u!54 &178339665
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1810,11 +1814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209583298528060031, guid: 52a1a65b645b6d541bee7d8f1eb0eb16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: -0.549
       objectReference: {fileID: 0}
     - target: {fileID: 5209583298528060031, guid: 52a1a65b645b6d541bee7d8f1eb0eb16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.339
+      value: -0.353
       objectReference: {fileID: 0}
     - target: {fileID: 5209583298528060031, guid: 52a1a65b645b6d541bee7d8f1eb0eb16, type: 3}
       propertyPath: m_LocalRotation.w
