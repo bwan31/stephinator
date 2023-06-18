@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1465,7 +1465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.59
+      value: 7.79
       objectReference: {fileID: 0}
     - target: {fileID: 7572681757720436717, guid: c5e068a525322bc4a9e41f185fa33cb3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1537,7 +1537,51 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: health
+      value: 6.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1342136003689555004, guid: 52a1a65b645b6d541bee7d8f1eb0eb16, type: 3}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: sightRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: walkPoint.x
+      value: 2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: walkPoint.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: walkPoint.z
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: walkPointRange
+      value: 5.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700940396429843978, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3750444095669912140, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
@@ -1593,8 +1637,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6961603034288755682, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961603034288755682, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961603034288755682, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: m_Acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961603034288755682, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7821040122874738551, guid: 1cfc6c4aa9ee18d489afd3f7a9f57254, type: 3}
       propertyPath: m_IsKinematic
