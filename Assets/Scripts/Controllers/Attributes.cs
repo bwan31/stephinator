@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attributes : MonoBehaviour
+public class Attributes : MonoBehaviour, IDamageable
 {
-    public int health = 50;
+    public float health;
     public int attack = 5;
     private float damageTimer = 0;
     public float damageDelay = .5f;
@@ -17,10 +17,12 @@ public class Attributes : MonoBehaviour
         //    DealDamage(player.gameObject);
         // }
         damageTimer -= Time.deltaTime;
-
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
     }
 
-    public void TakeDamage(int amount) {
+    public void TakeDamage(float amount) {
         health -= amount;
     }
 
