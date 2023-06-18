@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
+    bool isRecoil = false;
+    public GameObject Revolve;
     private bool contact;
 
     [Header("References")]
@@ -18,6 +21,9 @@ public class Gun : MonoBehaviour
     }
 
     public void Fire() {
+        if (!isRecoil) {
+            StartCoroutine(StartRecoil());
+        }
         RaycastHit hit;
         if (lastShot > 1f / (weaponData.fireRate / 60f)) {
             if (Physics.Raycast(guncam.position, guncam.forward, out hit)) {
@@ -45,5 +51,14 @@ public class Gun : MonoBehaviour
     }
 
     public void OnGunFired() {
+    }
+
+    IEnumerator StartRecoil()
+    {
+        Revolve.GetComponent<Animator>().Play("Recoil");
+        isRecoil = true;
+        yield return new WaitForSeconds(1f);
+        Revolve.GetComponent<Animator>().Play("Rest");
+        isRecoil = false;
     }
 }

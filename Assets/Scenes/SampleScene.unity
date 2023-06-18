@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -643,6 +643,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: a2bb84bb40bedd9498fd9b93f925e61b, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &416187255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
+  m_PrefabInstance: {fileID: 490642008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &486860272
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,13 +760,37 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
     - {fileID: -8700617353114198275, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 490642010}
   m_SourcePrefab: {fileID: 100100000, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
 --- !u!4 &490642009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd3736a7816fffc43a83067b197beeb2, type: 3}
   m_PrefabInstance: {fileID: 490642008}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &490642010
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416187255}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3aaaa03b724247d4195afe3f77d72e07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &547701517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17557b72ec7e264bbb71d84a2072b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Revolve: {fileID: 416187255}
   gunshot: {fileID: 1838817853}
   gunshotHit: {fileID: 822161403}
   weaponData: {fileID: 11400000, guid: fb044889637872549b1ba0870c56870a, type: 2}
