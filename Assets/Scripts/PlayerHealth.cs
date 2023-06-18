@@ -7,15 +7,26 @@ public class PlayerHealth : MonoBehaviour
 {
     private float health;
     private float lerpTimer;
+    
+    [Header("Health Bar")]
     public float maxHealth = 100;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
 
+    [Header("Damage Overlay")]
+    public Image overlay; // our DamageOverlay GameObject
+    public float duration; //how long the image fully stays opaque
+    public float fadeSpeed; // how quickly the image will fade
+
+    private float durationTimer; // timer to check against the duration
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
+
     }
 
     // Update is called once per frame
@@ -23,6 +34,20 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
+
+        if(overlay.color.a >  0) {            
+            if(health < 30)
+                return;
+            
+            durationTimer += Time.deltaTime;
+            if(durationTimer > duration) {
+                //fade image
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime * fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+            }
+
+        }
         // if(Input.GetKeyDown(KeyCode.A)) {  // change this stuff later to damage from enemies
         //     TakeDamage(Random.Range(5, 10));
         // }
@@ -61,6 +86,9 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage) {
         health -= damage;
         lerpTimer = 0f;
+        durationTimer = 0;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
+
     }
 
     public void RestoreHealth(float HealAmount) {
