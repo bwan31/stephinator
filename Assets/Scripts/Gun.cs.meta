@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: 7a6eb29289488124ea21453e53a142af
+guid: e17557b72ec7e264bbb71d84a2072b27
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gunshot: {instanceID: 0}
+  - gunshotHit: {instanceID: 0}
+  - weaponData: {instanceID: 0}
+  - guncam: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

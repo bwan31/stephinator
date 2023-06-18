@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    private bool contact;
+
     [Header("References")]
+    public AudioSource gunshot; // judgement destiny 2 
+    public AudioSource gunshotHit; // sunset destiny 2 
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private Transform guncam;
     float lastShot;
@@ -19,11 +23,16 @@ public class Gun : MonoBehaviour
             if (Physics.Raycast(guncam.position, guncam.forward, out hit)) {
                 Debug.Log(hit.transform.name);
                 if(hit.collider.tag == "enemy") {
-                    print("enemy");
+                    gunshotHit.Play();
+                    contact = true;
                 }
                 IDamageable damage = hit.transform.GetComponent<IDamageable>();
                 damage?.TakeDamage(weaponData.damage);
+
             }
+            if (contact != true)
+                gunshot.Play();
+            contact = false;
 
             lastShot = 0;
             OnGunFired();
