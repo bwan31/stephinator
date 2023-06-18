@@ -6,7 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    public float speed = 6f; // make sure this value is equal to line 62 
+    public float speed = 10f; // make sure this value is equal to line 62 
     public float acceleration = 4f;
     public float maxSpeed = 11;
     private bool isGrounded;
@@ -41,7 +41,7 @@ public class PlayerMotor : MonoBehaviour
                 Debug.Log(speed);
             } else {
                 controller.height = Mathf.Lerp(controller.height, 2, p);     
-                speed = 6;
+                speed = 10;
             }
         }
         if (p > 1) {
@@ -63,7 +63,7 @@ public class PlayerMotor : MonoBehaviour
         moveDirection.x = input.x;
         moveDirection.z = input.y;
         if ( transform.TransformDirection(moveDirection) * speed * Time.deltaTime == Vector3.zero) 
-            speed = 6;
+            speed = 10;
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
 
 
