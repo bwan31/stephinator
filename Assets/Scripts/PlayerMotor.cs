@@ -34,10 +34,14 @@ public class PlayerMotor : MonoBehaviour
             crouchTimer += Time.deltaTime;
             p = crouchTimer / 1;
             p *= p;
-            if(crouching) {
+            if(crouching || Input.GetKeyDown(KeyCode.LeftControl)) {
+                // if (speed > 10) call slide
                 controller.height = Mathf.Lerp(controller.height, 1, p);
+                speed = 4f;
+                Debug.Log(speed);
             } else {
-                controller.height = Mathf.Lerp(controller.height, 2, p);                
+                controller.height = Mathf.Lerp(controller.height, 2, p);     
+                speed = 6;
             }
         }
         if (p > 1) {
@@ -50,7 +54,7 @@ public class PlayerMotor : MonoBehaviour
     //recieve the inputs for our InputManager.cs and apply them to our character controller.
     public void ProcessMove(Vector2 input) {
         Vector3 moveDirection = Vector3.zero;
-        if(speed < maxSpeed){
+        if(speed < maxSpeed && crouching != true){
             speed += acceleration * Time.deltaTime;
         }
 
