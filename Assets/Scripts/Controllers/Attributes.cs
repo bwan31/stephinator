@@ -10,15 +10,18 @@ public class Attributes : MonoBehaviour, IDamageable
     public float damageDelay = .5f;
     public PlayerHealth player;
 
-
     private void Update()
     { 
+        var atm = player.GetComponent<PlayerHealth>();
+
         // if(Input.GetKeyDown(KeyCode.B)) { // replace if condition with collision
         //    DealDamage(player.gameObject);
         // }
         damageTimer -= Time.deltaTime;
         if (health <= 0) {
             Destroy(gameObject);
+            if(atm != null)
+                atm.RestoreHealth(10);
         }
     }
 
@@ -28,6 +31,7 @@ public class Attributes : MonoBehaviour, IDamageable
 
     public void DealDamage (GameObject target) {
         var atm = target.GetComponent<PlayerHealth>();
+
         if(atm != null) {
             atm.TakeDamage(attack);
         }
