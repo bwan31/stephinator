@@ -28,7 +28,7 @@
 
 //     private void Awake()
 //     {
-//         player = GameObject.Find("Player").transform;
+//         player = GameObject.Find("Cube").transform;
 //         agent = GetComponent<NavMeshAgent>();
 //     }
 
@@ -106,14 +106,13 @@
 //     private void DestroyEnemy()
 //     {
 //         Destroy(gameObject);
-//         Debug.Log("destroyed");
 //     }
 
-//     // private void OnDrawGizmosSelected()
-//     // {
-//     //     Gizmos.color = Color.red;
-//     //     Gizmos.DrawWireSphere(transform.position, attackRange);
-//     //     Gizmos.color = Color.yellow;
-//     //     Gizmos.DrawWireSphere(transform.position, sightRange);
-//     // }
+//     private void OnDrawGizmosSelected()
+//     {
+//         Gizmos.color = Color.red;
+//         Gizmos.DrawWireSphere(transform.position, attackRange);
+//         Gizmos.color = Color.yellow;
+//         Gizmos.DrawWireSphere(transform.position, sightRange);
+//     }
 // }
