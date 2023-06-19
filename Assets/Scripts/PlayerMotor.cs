@@ -18,7 +18,7 @@ public class PlayerMotor : MonoBehaviour
     public float maxSpeed = 21;
     private bool isGrounded;
     public float gravity = -40f; //9.8
-    public float jumpHeight = 1.5f;
+    public float jumpHeight = 2f;
     public bool lerpCrouch;
     public bool crouching;
     // public bool sprinting;
