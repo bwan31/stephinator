@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
             motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
     private void LateUpdate() {
-        //if(!PauseMenu.isPaused) 
+        if(!PauseMenu.isPaused) 
             look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
     }
 

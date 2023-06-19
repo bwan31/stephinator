@@ -50,7 +50,7 @@ public class PlayerMotor : MonoBehaviour
                     Sliding();
                 }
                 controller.height = Mathf.Lerp(controller.height, 1, p);
-                speed = 4f;
+                // speed = 4f;
                 Debug.Log(speed);
             } else {
                 controller.height = Mathf.Lerp(controller.height, 2, p);     
