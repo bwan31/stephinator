@@ -19,10 +19,14 @@ public class Attributes : MonoBehaviour, IDamageable
         // }
         damageTimer -= Time.deltaTime;
         if (health <= 0) {
-            Destroy(gameObject);
             if(atm != null)
-                atm.RestoreHealth(10);
+                atm.RestoreHealth(Regen());
+            Destroy(gameObject);
         }
+    }
+
+    private float Regen() {
+        return health/player.GetHealth;
     }
 
     public void TakeDamage(float amount) {
@@ -40,7 +44,7 @@ public class Attributes : MonoBehaviour, IDamageable
     void OnCollisionStay(Collision col) {
         if (col.collider.tag == "Player") 
         { 
-            Debug.Log("hit detecte"); 
+            Debug.Log("hit detected"); 
             // Check if the player is currently able to take damage (i.e. the damage timer is less than or equal to zero) 
             if (damageTimer <= 0) 
             { 
@@ -48,8 +52,7 @@ public class Attributes : MonoBehaviour, IDamageable
                 DealDamage(player.gameObject); 
  
                 // Reset the damage timer 
-                damageTimer = damageDelay; 
-                
+                damageTimer = damageDelay;                 
             }
            
         }

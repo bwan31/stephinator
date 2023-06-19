@@ -46,7 +46,6 @@ public class PlayerHealth : MonoBehaviour
                 tempAlpha -= Time.deltaTime * fadeSpeed;
                 overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
             }
-
         }
         // if(Input.GetKeyDown(KeyCode.A)) {  // change this stuff later to damage from enemies
         //     TakeDamage(Random.Range(5, 10));
@@ -55,6 +54,10 @@ public class PlayerHealth : MonoBehaviour
         //     RestoreHealth(100);
         // }
 
+    }
+
+    public float GetHealth() {
+        return health;
     }
 
     public void UpdateHealthUI() {
