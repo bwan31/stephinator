@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca48e985eaead44ba311aebf3d0fe7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reducedHeight: 0
   speed: 6
   acceleration: 4
   maxSpeed: 11
@@ -3425,6 +3426,7 @@ MonoBehaviour:
   guncam: {fileID: 2040411499}
   muzzle: {fileID: 486860273}
   BulletTrail: {fileID: 713405008}
+  waitTime: 0
 --- !u!1 &1208654806
 GameObject:
   m_ObjectHideFlags: 0
