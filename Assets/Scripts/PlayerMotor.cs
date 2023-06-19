@@ -15,7 +15,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 playerVelocity;
     public float speed = 10f; // make sure this value is equal to line 62 
     public float acceleration = 4f;
-    public float maxSpeed = 11;
+    public float maxSpeed = 21;
     private bool isGrounded;
     public float gravity = -40f; //9.8
     public float jumpHeight = 1.5f;
@@ -46,15 +46,15 @@ public class PlayerMotor : MonoBehaviour
             p *= p;
             if(crouching || Input.GetKeyDown(KeyCode.LeftControl)) {
                 // if (speed > 10) call slide
-                if (speed>maxSpeed*.8) {
-                    Sliding();
-                }
-                controller.height = Mathf.Lerp(controller.height, 1, p);
+                // if (speed>maxSpeed*.8) {
+                //     Sliding();
+                // }
+                controller.height = Mathf.Lerp(controller.height, .5f, p);
                 // speed = 4f;
                 Debug.Log(speed);
             } else {
-                controller.height = Mathf.Lerp(controller.height, 2, p);     
-                speed = 10;
+                controller.height = Mathf.Lerp(controller.height, 3, p);     
+                //speed = 10;
             }
         }
         if (p > 1) {
@@ -64,35 +64,35 @@ public class PlayerMotor : MonoBehaviour
 
     }
 
-    public void Sliding() {
-        sliding = true;
-        collider.height = reducedHeight;
-        rig.AddForce(transform.forward * speed * 5, ForceMode.VelocityChange);
+    // public void Sliding() {
+    //     sliding = true;
+    //     collider.height = reducedHeight;
+    //     rig.AddForce(transform.forward * speed * 5, ForceMode.VelocityChange);
 
-        StartCoroutine(ExecuteAfterTime(2.5f));
-    }
+    //     StartCoroutine(ExecuteAfterTime(2.5f));
+    // }
 
-    IEnumerator ExecuteAfterTime(float time) {
-        yield return new WaitForSeconds(time);
+    // IEnumerator ExecuteAfterTime(float time) {
+    //     yield return new WaitForSeconds(time);
         
-        GoUp();
-    }
+    //     GoUp();
+    // }
     
-    IEnumerator ExecuteAfterTimeTwo(float time) {
-        yield return new WaitForSeconds(time);
+    // IEnumerator ExecuteAfterTimeTwo(float time) {
+    //     yield return new WaitForSeconds(time);
         
-        speed = speed*3/4;
-    }
+    //     speed = speed*3/4;
+    // }
 
-    public void GoUp() {
-        collider.height = originalHeight;
+    // public void GoUp() {
+    //     collider.height = originalHeight;
 
-        speed = speed*3/4;
+    //     speed = speed*3/4;
 
-        StartCoroutine(ExecuteAfterTimeTwo(.5f));
+    //     StartCoroutine(ExecuteAfterTimeTwo(.5f));
 
-        sliding = false;
-    }
+    //     sliding = false;
+    // }
 
     //recieve the inputs for our InputManager.cs and apply them to our character controller.
     public void ProcessMove(Vector2 input) {

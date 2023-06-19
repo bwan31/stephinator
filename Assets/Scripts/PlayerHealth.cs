@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
 
-        if(overlay.color.a >  0) {            
+        if(overlay.color.a > 0) {            
             if(health < 30)
                 return;
             
@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
         float fillB = backHealthBar.fillAmount;
         float hFraction = health/maxHealth;
 
-        if(fillB >  hFraction) {
+        if(fillB > hFraction) {
             frontHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
