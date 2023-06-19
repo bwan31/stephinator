@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Revolver
   damage: 33
-  maxDistance: 200
+  maxDistance: 2000
   fireRate: 60

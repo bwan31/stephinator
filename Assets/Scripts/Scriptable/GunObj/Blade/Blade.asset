@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ecc06bf50ca7b45bfb73b10040aab4, type: 3}
   m_Name: Blade
   m_EditorClassIdentifier: 
-  name: 
-  damage: 0
-  maxDistance: 0
-  fireRate: 0
+  name: Blade
+  damage: 50
+  maxDistance: 4
+  fireRate: 80
