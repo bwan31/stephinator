@@ -67,9 +67,9 @@ public class PlayerMotor : MonoBehaviour
     public void Sliding() {
         sliding = true;
         collider.height = reducedHeight;
-        rig.AddForce(transform.forward * speed * 3, ForceMode.VelocityChange);
+        rig.AddForce(transform.forward * speed * 5, ForceMode.VelocityChange);
 
-        StartCoroutine(ExecuteAfterTime(1));
+        StartCoroutine(ExecuteAfterTime(2.5f));
     }
 
     IEnumerator ExecuteAfterTime(float time) {
@@ -78,9 +78,19 @@ public class PlayerMotor : MonoBehaviour
         GoUp();
     }
     
+    IEnumerator ExecuteAfterTimeTwo(float time) {
+        yield return new WaitForSeconds(time);
+        
+        speed = speed*3/4;
+    }
+
     public void GoUp() {
         collider.height = originalHeight;
-        speed = speed/2;
+
+        speed = speed*3/4;
+
+        StartCoroutine(ExecuteAfterTimeTwo(.5f));
+
         sliding = false;
     }
 
