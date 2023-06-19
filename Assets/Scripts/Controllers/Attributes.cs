@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attributes : MonoBehaviour, IDamageable
 {
     public float health;
-    public int attack = 5;
+    public int attack;
     private float damageTimer = 0;
     public float damageDelay = .5f;
     public PlayerHealth player;
