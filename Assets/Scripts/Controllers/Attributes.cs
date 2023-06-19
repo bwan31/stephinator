@@ -26,7 +26,7 @@ public class Attributes : MonoBehaviour, IDamageable
     }
 
     private float Regen() {
-        return health/player.GetHealth;
+        return health/player.GetHealth();
     }
 
     public void TakeDamage(float amount) {
