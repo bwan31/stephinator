@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
 
     bool isRecoil = false;
-    public GameObject Revolve;
+    [SerializeField] private GameObject Revolve;
     private bool contact;
 
     [Header("References")]
@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform guncam;
     [SerializeField] private Transform muzzle;
     [SerializeField] private TrailRenderer BulletTrail;
+    [SerializeField] private float waitTime;
 
     float lastShot;
 
@@ -23,13 +24,20 @@ public class Gun : MonoBehaviour
         PlayerFire.fireInput += Fire;
     }
 
+    private void OnDisable() => isRecoil = false;
+
     public void Fire() {
-        if (!isRecoil) {
-            StartCoroutine(StartRecoil());
+        if (!isRecoil && this.gameObject.activeSelf) {
+            if (weaponData.name == "Revolver") {
+                StartCoroutine(StartRecoil());
+            }
+            else if (weaponData.name == "Blade") {
+                StartCoroutine(StartRecoil2());
+            }
         }
         RaycastHit hit;
         if (lastShot > 1f / (weaponData.fireRate / 60f)) {
-            if (Physics.Raycast(guncam.position, guncam.forward, out hit)) {
+            if (Physics.Raycast(guncam.position, guncam.forward, out hit, weaponData.maxDistance)) {
                 Debug.Log(hit.transform.name);
                 if(hit.collider.tag == "enemy") {
                     gunshotHit.Play();
@@ -44,8 +52,11 @@ public class Gun : MonoBehaviour
             contact = false;
 
             lastShot = 0;
-            TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
-            StartCoroutine(SpawnTrail(trail, hit));
+            if (weaponData.damage == 33) {
+                TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
+                StartCoroutine(SpawnTrail(trail, hit));
+
+            }
         }
     }
 
@@ -58,15 +69,24 @@ public class Gun : MonoBehaviour
     {
         Revolve.GetComponent<Animator>().Play("Recoil");
         isRecoil = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitTime);
         Revolve.GetComponent<Animator>().Play("Rest");
+        isRecoil = false;
+    }
+
+    IEnumerator StartRecoil2()
+    {
+        Revolve.GetComponent<Animator>().Play("Swing");
+        isRecoil = true;
+        yield return new WaitForSeconds(waitTime);
+        Revolve.GetComponent<Animator>().Play("Resting");
         isRecoil = false;
     }
 
     private IEnumerator SpawnTrail(TrailRenderer Trail, RaycastHit Hit) {
         float time = 0;
         Vector3 startPosition = Trail.transform.position;
-        while (time < 0.1) {
+        while (time < 0.01) {
             Trail.transform.position = Vector3.Lerp(startPosition, Hit.point, time);
             time+= Time.deltaTime;
 

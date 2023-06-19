@@ -32,10 +32,12 @@ public class InputManager : MonoBehaviour
     void FixedUpdate()
     {
         // tell the playermotor to move using the value from our movement action.
-        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        //if(!PauseMenu.isPaused) 
+            motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
     private void LateUpdate() {
-        look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
+        //if(!PauseMenu.isPaused) 
+            look.ProcessLook(onFoot.Look.ReadValue<Vector2>());
     }
 
     private void OnEnable() { 

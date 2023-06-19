@@ -14,8 +14,13 @@ public class CursorHide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked; 
-        
+        //if(!PauseMenu.isPaused) {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked; 
+        // }
+        // else {
+        //     Cursor.visible = true;
+        // }
+
     }
 }

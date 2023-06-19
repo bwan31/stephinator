@@ -7,6 +7,10 @@ public class PlayerFire : MonoBehaviour
 {
     public static Action fireInput;
 
+    private void Start() {
+        PauseMenu.isPaused = false;
+    }
+
     private void Update() {
         if (Input.GetMouseButton(0)) {
             fireInput?.Invoke();
