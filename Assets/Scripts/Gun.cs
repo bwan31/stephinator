@@ -27,35 +27,37 @@ public class Gun : MonoBehaviour
     private void OnDisable() => isRecoil = false;
 
     public void Fire() {
-        if (!isRecoil && this.gameObject.activeSelf) {
-            if (weaponData.name == "Revolver") {
-                StartCoroutine(StartRecoil());
-            }
-            else if (weaponData.name == "Blade") {
-                StartCoroutine(StartRecoil2());
-            }
-        }
-        RaycastHit hit;
-        if (lastShot > 1f / (weaponData.fireRate / 60f)) {
-            if (Physics.Raycast(guncam.position, guncam.forward, out hit, weaponData.maxDistance)) {
-                Debug.Log(hit.transform.name);
-                if(hit.collider.tag == "enemy") {
-                    gunshotHit.Play();
-                    contact = true;
+        if (this.gameObject.activeSelf) {
+            if (!isRecoil && this.gameObject.activeSelf) {
+                if (weaponData.name == "Revolver") {
+                    StartCoroutine(StartRecoil());
                 }
-                IDamageable damage = hit.transform.GetComponent<IDamageable>();
-                damage?.TakeDamage(weaponData.damage);
-
+                else if (weaponData.name == "Blade") {
+                    StartCoroutine(StartRecoil2());
+                }
             }
-            if (contact != true)
-                gunshot.Play();
-            contact = false;
+            RaycastHit hit;
+            if (lastShot > 1f / (weaponData.fireRate / 60f)) {
+                if (Physics.Raycast(guncam.position, guncam.forward, out hit, weaponData.maxDistance)) {
+                    Debug.Log(hit.transform.name);
+                    if(hit.collider.tag == "enemy") {
+                        gunshotHit.Play();
+                        contact = true;
+                    }
+                    IDamageable damage = hit.transform.GetComponent<IDamageable>();
+                    damage?.TakeDamage(weaponData.damage);
 
-            lastShot = 0;
-            if (weaponData.name == "Revolver" && this.gameObject.activeSelf) {
-                TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, hit));
+                }
+                if (contact != true)  
+                    gunshot.Play();
+                contact = false;
 
+                lastShot = 0;
+                if (weaponData.name == "Revolver") {
+                    TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
+                    StartCoroutine(SpawnTrail(trail, hit));
+
+                }
             }
         }
     }
