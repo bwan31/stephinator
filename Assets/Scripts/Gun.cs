@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-    bool isRecoil = false;
+    public bool isRecoil = false;
     [SerializeField] private GameObject Revolve;
     private bool contact;
 
@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
             contact = false;
 
             lastShot = 0;
-            if (weaponData.damage == 33) {
+            if (weaponData.name == "Revolver" && this.gameObject.activeSelf) {
                 TrailRenderer trail = Instantiate(BulletTrail, muzzle.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit));
 
