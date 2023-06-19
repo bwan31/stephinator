@@ -1414,9 +1414,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nForward - W\t\t\tAttack/Shoot - Left Click\nLeft - A\t\t\t\tInteract
-    - E\nBack - S\t\t\t\tSwitch Weapons - 1, 2, 3\nRight - D\nCrouch/Slide - Left
-    Ctrl\nJump - Space"
+  m_text: "\nForward - W\t\t\tAttack/Shoot - Left Click\nLeft - A\t\t\t\tSwitch Weapons
+    - 1, 2\nBack - S\t\t\t\t \nRight - D\nCrouch/Slide - Left Ctrl\nJump - Space"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4905ae46fb0a04c4bbaab61c0142ace6, type: 2}
   m_sharedMaterial: {fileID: 3720847886475743569, guid: 4905ae46fb0a04c4bbaab61c0142ace6, type: 2}
