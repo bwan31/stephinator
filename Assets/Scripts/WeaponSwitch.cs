@@ -13,13 +13,15 @@ public class WeaponSwitch : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float switchTime;
 
+    [SerializeField] private Gun gun;
+    [SerializeField] private Gun sword;
+
     private int selectedWeapon;
     private float lastSwitched;
 
     private void Start() {
         SetWeapon();
         Select(selectedWeapon);
-
         lastSwitched = 0f;
         
     }
@@ -28,12 +30,12 @@ public class WeaponSwitch : MonoBehaviour
         int previousSelectedWeapon = selectedWeapon;
 
         for(int i = 0; i < keys.Length; i++) {
-            if (Input.GetKeyDown(keys[i]) && lastSwitched >= switchTime) {
+            if (Input.GetKeyDown(keys[i]) && lastSwitched >= switchTime && gun.isRecoil != true && sword.isRecoil != true) {
                 selectedWeapon = i;
             }
         }
 
-        if (previousSelectedWeapon != selectedWeapon) Select(selectedWeapon);
+        if (previousSelectedWeapon != selectedWeapon && gun.isRecoil != true && sword.isRecoil != true) Select(selectedWeapon);
 
         lastSwitched += Time.deltaTime;
     }
