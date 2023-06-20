@@ -27,9 +27,8 @@ public class Door : MonoBehaviour {
     void Update() {
         Collider col = gameObject.GetComponent<Collider>();
 
-        Debug.Log(creeping);
-
         if(num == 1) {
+            Debug.Log(creeping.creep);
             if(creeping.creep == 0) {
                 col.isTrigger = true;
             }
