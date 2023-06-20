@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -88,10 +89,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) {
         health -= damage;
+        Debug.Log("1");
+        if (health <= 0 ) {
+            Debug.Log("2");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None; 
+            SceneManager.LoadScene("DeathScreen");
+        }
         lerpTimer = 0f;
         durationTimer = 0;
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
-
     }
 
     public void RestoreHealth(float HealAmount) {
@@ -100,12 +107,12 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    // void onCollisionEnter(Collision col) {
-    //     Debug.Log(col.gameObject);
-    //     if(col.gameObject.name == "Enemy") {
-    //         TakeDamage(5);
-    //     }
-    // }
+    void OnCollisionEnter(Collision col) {
+        Debug.Log(col.gameObject);
+        if(col.gameObject.tag == "bullet") {
+            TakeDamage(15);
+        }
+    }
 
     // void onTriggerEnter(Collider other) {
     //     Debug.Log("hit detected");
