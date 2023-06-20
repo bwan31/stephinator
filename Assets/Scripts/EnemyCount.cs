@@ -25,6 +25,12 @@ public class EnemyCount : MonoBehaviour
         creeping = GameObject.FindGameObjectsWithTag("creep");
         creep = creeping.Length;
         
+        shooting = GameObject.FindGameObjectsWithTag("shoot");
+        shoot = shooting.Length;
+
+        sniping = GameObject.FindGameObjectsWithTag("snipe");
+        snipe = sniping.Length;
+        
         
     }
 }
