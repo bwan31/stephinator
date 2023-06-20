@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    void Update() {
+        if (SceneManager.GetActiveScene().name == "DeathScreen" || SceneManager.GetActiveScene().name == "Menu" )
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        } else {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
     public void PlayGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
