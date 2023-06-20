@@ -89,7 +89,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) {
         health -= damage;
-        Debug.Log("1");
         if (health <= 0 ) {
             Debug.Log("2");
             Cursor.visible = true;

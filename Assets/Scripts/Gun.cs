@@ -40,7 +40,7 @@ public class Gun : MonoBehaviour
             if (lastShot > 1f / (weaponData.fireRate / 60f)) {
                 if (Physics.Raycast(guncam.position, guncam.forward, out hit, weaponData.maxDistance)) {
                     Debug.Log(hit.transform.name);
-                    if(hit.collider.tag == "enemy") {
+                    if(hit.collider.tag == "creep" || hit.collider.tag == "shoot" || hit.collider.tag == "snipe") {
                         gunshotHit.Play();
                         contact = true;
                     }

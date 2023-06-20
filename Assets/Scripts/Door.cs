@@ -6,17 +6,20 @@ public class Door : MonoBehaviour {
     public Transform manager;
 
     private EnemyCount creeping;
+    private EnemyCount shooting;
+    private EnemyCount sniping;
 
     public Transform player;
     public Transform door;
 
-    //public int num;
+    public int num;
     //public Collider collider;
 
     void Start() {
         //collider = GetComponent<Collider>();
         creeping = manager.GetComponent<EnemyCount>();
-
+        shooting = manager.GetComponent<EnemyCount>();
+        sniping = manager.GetComponent<EnemyCount>();
 
     }
 
@@ -26,11 +29,23 @@ public class Door : MonoBehaviour {
 
         Debug.Log(creeping);
 
-        if(creeping.creep == 0) {
-            Debug.Log("hello");
-            col.isTrigger = true;
+        if(num == 1) {
+            if(creeping.creep == 0) {
+                col.isTrigger = true;
+            }
         }
 
+        if(num == 2) {
+            if(shooting.shoot == 0) {
+                col.isTrigger = true;
+            }    
+        }
+        if(num == 3) {
+            if(sniping.snipe == 0) {
+                col.isTrigger = true;
+            }
+
+        }
         // //var atm = player.GetComponent<PlayerHealth>();
 
         // float distance = Vector3.Distance(player.position, door.position);
@@ -51,17 +66,17 @@ public class Door : MonoBehaviour {
 
     }
     
-    // void OnTriggerEnter(Collider other) {
-    //     var atm = other.GetComponent<PlayerHealth>();
-    //     Collider col = gameObject.GetComponent<Collider>();
+    void OnTriggerEnter(Collider other) {
+        var atm = other.GetComponent<PlayerHealth>();
+        Collider col = gameObject.GetComponent<Collider>();
 
-    //     if(atm != null) {
-    //         // code to close door
-    //         atm.RestoreHealth(100);
-    //         col.isTrigger = false;
-    //         // StartCoroutine(ExecuteAfterTime(1));
-    //     } 
-    // }
+        if(atm != null) {
+            // code to close door
+            atm.RestoreHealth(50);
+            col.isTrigger = false;
+            // StartCoroutine(ExecuteAfterTime(1));
+        } 
+    }
 
     // IEnumerator ExecuteAfterTime(float time) {
     //     yield return new WaitForSeconds(time);
