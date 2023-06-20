@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Blade
   m_EditorClassIdentifier: 
   name: Blade
-  damage: 50
-  maxDistance: 4
+  damage: 100
+  maxDistance: 12
   fireRate: 80
