@@ -3,49 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
-    public Animator animator;
+    public Transform manager;
+
+    private EnemyCount creeping;
+
     public Transform player;
     public Transform door;
+
+    //public int num;
     //public Collider collider;
 
     void Start() {
         //collider = GetComponent<Collider>();
+        creeping = manager.GetComponent<EnemyCount>();
+
+
     }
 
 
     void Update() {
+        Collider col = gameObject.GetComponent<Collider>();
 
-        //var atm = player.GetComponent<PlayerHealth>();
+        Debug.Log(creeping);
 
-        float distance = Vector3.Distance(player.position, door.position);
+        if(creeping.creep == 0) {
+            Debug.Log("hello");
+            col.isTrigger = true;
+        }
 
-        //animator.SetBool("Near", GetComponent<Collider>().OnTrigger);
+        // //var atm = player.GetComponent<PlayerHealth>();
 
-        // // idrk how this works
+        // float distance = Vector3.Distance(player.position, door.position);
+
+        // //animator.SetBool("Near", GetComponent<Collider>().OnTrigger);
+
+        // // // idrk how this works
 
 
-        // // i need to know if the player crossed so that i can close the door but idk how
+        // // // i need to know if the player crossed so that i can close the door but idk how
         
 
-        if (distance<=25) {
-            animator.SetBool("Near", true);
-        } else {
-            animator.SetBool("Near", false);
-        }
+        // if (distance<=25) {
+        //     animator.SetBool("Near", true);
+        // } else {
+        //     animator.SetBool("Near", false);
+        // }
 
     }
     
-    void OnTriggerEnter(Collider other) {
-        var atm = other.GetComponent<PlayerHealth>();
-        Collider col = gameObject.GetComponent<Collider>();
+    // void OnTriggerEnter(Collider other) {
+    //     var atm = other.GetComponent<PlayerHealth>();
+    //     Collider col = gameObject.GetComponent<Collider>();
 
-        if(atm != null) {
-            // code to close door
-            atm.RestoreHealth(100);
-            col.isTrigger = false;
-            // StartCoroutine(ExecuteAfterTime(1));
-        } 
-    }
+    //     if(atm != null) {
+    //         // code to close door
+    //         atm.RestoreHealth(100);
+    //         col.isTrigger = false;
+    //         // StartCoroutine(ExecuteAfterTime(1));
+    //     } 
+    // }
 
     // IEnumerator ExecuteAfterTime(float time) {
     //     yield return new WaitForSeconds(time);

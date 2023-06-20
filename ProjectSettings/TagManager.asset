@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - bullet
+  - creep
   layers:
   - Default
   - TransparentFX
